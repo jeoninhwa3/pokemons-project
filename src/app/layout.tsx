@@ -13,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-black">
+      <body className="bg-black max-w-7xl mx-auto my-0">
         <header className="py-8 text-center">
           <h1 className="text-3xl text-white font-bold">포켓몬 도감</h1>
         </header>

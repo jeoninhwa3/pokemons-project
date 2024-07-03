@@ -24,23 +24,24 @@ const PokemonList: React.FC = ({}) => {
     }
   };
 
-  console.log(pokemons);
-
   useEffect(() => {
     fetchData();
   }, []);
 
   return (
-    <ul>
+    <ul className="flex flex-wrap gap-5">
       {pokemons?.map((pokemon: Pokemon) => (
-        <li key={pokemon.id}>
+        <li
+          key={pokemon.id}
+          className="border rounded-2xl p-5 cursor-pointer transition-all hover:scale-110"
+        >
           <Image
             src={pokemon.sprites.front_default}
             alt={pokemon.korean_name}
-            width={100}
-            height={100}
+            width={120}
+            height={120}
           />
-          <strong>{pokemon.id}</strong>
+          <strong>도감번호 : {pokemon.id}</strong>
           <p>{pokemon.korean_name}</p>
         </li>
       ))}
