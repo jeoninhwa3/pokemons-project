@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Pokemon } from "../../types/pokemon";
 import Image from "next/image";
+import Link from "next/link";
 
 const PokemonList: React.FC = ({}) => {
   const [pokemons, setPokemons] = useState<Pokemon[]>();
@@ -35,14 +36,16 @@ const PokemonList: React.FC = ({}) => {
           key={pokemon.id}
           className="border rounded-2xl p-5 cursor-pointer transition-all hover:scale-110"
         >
-          <Image
-            src={pokemon.sprites.front_default}
-            alt={pokemon.korean_name}
-            width={120}
-            height={120}
-          />
-          <strong>도감번호 : {pokemon.id}</strong>
-          <p>{pokemon.korean_name}</p>
+          <Link href={`/detail/${pokemon.id}`}>
+            <Image
+              src={pokemon.sprites.front_default}
+              alt={pokemon.korean_name}
+              width={120}
+              height={120}
+            />
+            <strong>도감번호 : {pokemon.id}</strong>
+            <p>{pokemon.korean_name}</p>
+          </Link>
         </li>
       ))}
     </ul>
