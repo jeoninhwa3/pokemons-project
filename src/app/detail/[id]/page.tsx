@@ -4,10 +4,15 @@ const DetailPage = ({
   params,
 }: {
   params: {
-    id: string;
+    id: number;
   };
 }) => {
-  return <PokemonDetail />;
+  return (
+    <>
+      <PokemonDetail id={params.id} />
+      <p className="text-white">{params.id}</p>
+    </>
+  );
 };
 
 export default DetailPage;
