@@ -13,6 +13,25 @@ const detailPokemonApi = async (id: number) => {
 
 const PokemonDetail = async ({ id }: { id: number }) => {
   const pokemon = await detailPokemonApi(id);
+
+  const Types = () => {
+    return pokemon.types.map((type, idx) => (
+      <span key={idx}>{type.type.korean_name}</span>
+    ));
+  };
+
+  const Abilities = () => {
+    return pokemon.abilities.map((ability, idx) => (
+      <span key={idx}>{ability.ability.korean_name}</span>
+    ));
+  };
+
+  const Moves = () => {
+    return pokemon.moves.map((move, idx) => (
+      <span key={idx}>{move.move.korean_name}</span>
+    ));
+  };
+
   return (
     <div className="bg-white p-5 text-center">
       <div>
@@ -32,12 +51,9 @@ const PokemonDetail = async ({ id }: { id: number }) => {
           키 : {pokemon.height * 10} cm 무게 : {pokemon.weight / 10} kg
         </li>
         <li>
-          타입 : <span>{pokemon.types[0].type.korean_name}</span> 특성 :
-          <span>{pokemon.abilities[0].ability.korean_name}</span>
+          타입 : {Types()} 특성 : {Abilities()}
         </li>
-        {/* <li>
-          기술 : 
-        </li> */}
+        <li>기술 : {Moves()}</li>
       </ul>
       <button>
         <Link href={"/"}>뒤로 가기</Link>
