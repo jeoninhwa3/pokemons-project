@@ -10,7 +10,6 @@ const DetailPage = ({
   return (
     <>
       <PokemonDetail id={params.id} />
-      <p className="text-white">{params.id}</p>
     </>
   );
 };
