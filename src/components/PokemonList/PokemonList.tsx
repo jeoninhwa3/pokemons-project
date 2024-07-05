@@ -30,11 +30,11 @@ const PokemonList: React.FC = ({}) => {
   }, []);
 
   return (
-    <ul className="flex flex-wrap gap-5">
+    <ul className="flex flex-wrap justify-center gap-5">
       {pokemons?.map((pokemon: Pokemon) => (
         <li
           key={pokemon.id}
-          className="border rounded-2xl p-5 cursor-pointer transition-all hover:scale-110"
+          className="rounded p-5 bg-white shadow-card cursor-pointer transition-all text-center hover:scale-110"
         >
           <Link href={`/detail/${pokemon.id}`}>
             <Image
@@ -43,8 +43,8 @@ const PokemonList: React.FC = ({}) => {
               width={120}
               height={120}
             />
-            <strong>도감번호 : {pokemon.id}</strong>
-            <p>{pokemon.korean_name}</p>
+            <span className="text-sm font-bold">NO. {pokemon.id}</span>
+            <p className="text-xl font-bold">{pokemon.korean_name}</p>
           </Link>
         </li>
       ))}
